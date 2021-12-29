@@ -1,0 +1,173 @@
+
+.sidebar{
+	float:left;
+	background-color: #F5F5F5;
+	width:250px;
+	height:740px;
+	border: 2px solid black
+	
+}
+
+/*.Program{
+	background-color: white;opacity: 0.7;
+	float:left;
+	width:1269px;
+	height:110px;
+	border: 1px solid black
+}*/
+
+.G0{
+	background-color: #f2f7f7;opacity: 0.9;
+	float:left;
+	width:634.5px;
+	height:315px;
+	border: 1px solid black
+	
+
+}
+
+/*.G1{
+	background-color: #f2f7f7;
+	float:left;
+	width:415px;
+	height:310px;
+	border: 1px solid black
+	
+}*/
+
+.G1{
+	background-color: #f2f7f7;opacity: 0.9;
+	float:left;
+	width:634.5px;
+	height:315px;
+	border: 1px solid black
+	
+}
+
+.G2{
+	background-color: #f2f7f7;opacity: 0.9;
+	float:left;
+	width:634.5px;
+	height:315px;
+	border: 1px solid black
+
+}
+
+.G3{
+	background-color: #f2f7f7;opacity: 0.9;
+	float:left;
+	width:634.5px;
+	height:315px;
+	border: 1px solid black
+
+}
+
+.picture{
+	float:left;
+	background: #fcfafa;
+	width:248px;
+	height:70px;
+	border: 1px solid black
+	
+
+}
+
+.D0{
+	float:right;
+	width:300px;
+	height:310px;
+	/*border: 1px solid black*/
+	
+
+}
+
+/*.D1{
+	float:right;
+	width:250px;
+	height:310px;
+	
+	
+
+}*/
+
+.D1{
+	float:right;opacity: 0.9;
+	width:300px;
+	height:310px;
+	/*border: 1px solid black*/
+	
+
+}
+
+.D2{
+	float:right;opacity: 0.9;
+	width:290px;
+	height:305px;
+	/*border: 1px solid black*/
+	
+
+}
+
+.D3{
+	float:right;opacity: 0.9;
+	width:300px;
+	height:305px;
+	/*border: 1px solid black*/
+	
+
+}
+
+.N0{
+	float:right;opacity: 0.9;
+	background-color: #F5F5F5;
+	width:248px;
+	height:50px;
+	border: 1px solid black
+	
+	
+
+}
+
+/*.N1{
+	float:right;
+	width:248px;
+	height:50px;
+	border: 1px solid black
+	
+	
+
+}*/
+
+.N1{
+	float:right;opacity: 0.9;
+	background-color: #F5F5F5;
+	width:248px;
+	height:50px;
+	border: 1px solid black
+	
+	
+
+}
+
+.N2{
+	float:right;opacity: 0.9;
+	background-color: #F5F5F5;
+	width:248px;
+	height:50px;
+	border: 1px solid black
+	
+	
+
+}
+
+.N3{
+	float:right;opacity: 0.9;
+	background-color: #F5F5F5;
+	width:248px;
+	height:50px;
+	border: 1px solid black
+	
+	
+
+}
+
