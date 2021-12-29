@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  background-image: url("—Pngtree—blue sea water bubble plant_941276.jpg"); no-repeat center fixed;
+  background-size: cover;
+  padding: 20px;
+  text-align: center;
+
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  background-image: url("—Pngtree—blue sea water bubble plant_941276.jpg"); no-repeat center fixed;
+  background-size: cover;
+  float: left;
+  padding: 20px;
+  height : 1100px;
+  border: 3px solid black;
+
+}
+
+/* Left and right column */
+.column.side {
+  width: 20%;
+
+}
+
+/* Middle column */
+.column.middle {
+  background-image: url("—Pngtree—bottom fish fantasy background_211371.jpg"); no-repeat center fixed;
+  background-size: cover;
+  width: 60%;
+
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+
+}
+
+
+h1 {
+  background-color: black;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <font size="8"color="#00000" face="Vineta BT">Aquarium Water Quality Monitoring System</font>
+</div>
+
+<div class="topnav">
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+  <a style="float:right" ><img src="บุคคล.png"  width="15" hight="10" ></a>
+  <a href="#" style="float:right">Logout</a>
+</div>
+
+<div class="row">
+  <div class="column side">
+    <center>
+    <h2>อุปกรณ์</h2>
+    <img width="150" height="200"  src="Lovepik_com-401110458-fish-tank.png">
+    <p>ตู้ปลา</p>
+    <br>
+    <img width="150" height="200"  src="bod.png">
+    <p>เซนเซอร์</p>
+    <p>วัดค่า DO</p>
+    <p>วัดอุณหภูมิ</p>
+    <p> วัดกรดเบส </P>
+    <p>วัดระดับน้ำ</p>
+
+
+  </div>
+  
+  <div class="column middle">
+    <h2></h2>
+    <center>
+            <font size="10"  color="#FFFFFF"face="Vineta BT">Introducetion</font><br>
+          <video src="X2Download.com-NOTORIOUS K.O.M. - Big Poppa.mp4" width="520" height="440" controls="controls">
+Your browser does not support the video tag.
+      </video><br>
+      <br>
+      <br>
+    
+<h1 style="background-color:rgba(0, 0, 10, 0.5);"><font size="8"color="#FFFFFF"  face="Angsana New">ที่มาและความสำคัญ</font></h1>
+
+
+<h2 style="background-color:rgba(0, 0, 0, 0.7);">
+    <font size="5.5"color="#FFFFFF"  face="Angsana New"><b>พวกผมเป็นคนที่ชอบเลี้ยงปลาสวยงาม แต่ไม่มีเวลาที่จะดูแลทำให้ปลาของผมตายหมด และยังเสียเวลามาคอยเปลี่ยนน้ำให้เวลาตู้ไม่สะอาด จนเกิดเเนวคิดในการทำ ระบบตู้ปลา อัจฉริยะ นี้ได้มาจาก การเห็นปัญหาของการเลี้ยงปลาที่ไม่อาจจะสามารถรอดชีวิตแ 
+จากอายุน้อยๆได้ ละไม่มีเวลาเลี้ยงดู เช่น จำพวกปลาคาร์พ พวกผมจึงเกิดเเนวคิดในการทำ ตู้ปลาอนุบาลโดยระบบ จะเป็นการ วัดค่า ออกซิเจนในน้ำ อุณหภูมิ ค่ากรด-เบส เเละ ระดับน้ำของน้ำในตู้ปลา
+โดยจากค่าที่วัดได้จากเซนเซอร์นี้ จะถูกส่งไปยัง web ให้เเสดงผลเเบบ real time จากนั้น ระบบ จะคำนวนในขั้นตอนต่อไปว่า
+เราควรเปลี่ยนน้ำใหม โดยที่ไม่ต้องพะวงว่าเราจะเปลี่ยนน้ำตอนไหนและน้ำค่าเท่าไรถึงจะเหมาะกับปลาชนิดนี้มากที่สุด เพราะตู้ปลาจะส่งค่าบอกให้คุณรู้ถึงค่าต่างๆ ตู้ปลายังมีระบบเปลี่ยนน้ำอัตโนมัตทำให้เราโดยที่เราไม่ต้องมานั่งเปลี่ยนน้ำเองประหยัดเวลาให้เราทำอย่างอื่นได้อีกมากไม่ต้องคอยพะอีกด้วยวง
+โดย
+ค่าที่วัดได้ หากอยู่ในสภาวะปกติ
+1.ค่า PH อยู่ในช่วง 6.5-8.5
+2.ค่า DO 7-8 มิลลิกรัมต่อลิตร
+3.ค่า อุณหภูมิ สูงกว่า 30 องศา 
+4.ระดับน้ำห้ามลดต่ำกว่า 60 % ของตู้ปลา</b>
+</font></h2>
+  </div>
+  
+  <div class="column side">
+    <center>
+    <font size="6"color="#00000"  face="Angsana New"><b>คณะผู้จัดทำ</b></font>
+    <br>
+      <br>  
+    <img width="150" border = "3" src="75294.jpg">
+    <p>นายกัมพล สายใหม</p>
+    <p>6310301011</p>
+    <br>
+    <img width="150" height="200" border = "3" src="S__5242884.jpg">
+    <p>นายนราธิป เธียรจินดากุล</p>
+    <p>6310301010</p>
+    <br>
+    <img width="150" height="200" border = "3" src="LINE_ALBUM_291264_๒๑๑๒๒๙.jpg">
+    <p>นายรังสิมันตุ์ เล่าเกษตรวิทย์</p>
+    <p>6310301029</p>
+  </div>
+</div>
+  
+</body>
+</html>
+
+
