@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+
+	<title>DATA&GAUGE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" type="text/css" href="theme.css">
+
+    
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+        <script>
+            // สร้างตัวแปรเก็บค่าset
+            var setDO = {};
+            
+            angular.module('firebaseApp', []).service('firebaseService', function() {
+                // สร้าง Function เพื่อ init Firebase เข้ากับ app เรา
+                this.initFirebase = function() {
+                    var config = {
+                        apiKey: "AIzaSyCbRESCs5_cz_3rhAhoynPD06E2TLL2cUg",
+                        authDomain: "project-zero-aae29.firebaseapp.com",
+                        databaseURL: "https://project-zero-aae29-default-rtdb.firebaseio.com"
+                    };
+                    
+
+                    //อ้างอิงข้อมูลDatabase
+                    firebase.initializeApp(config);
+                    setDO = firebase.database().ref("Set")
+
+                }
+                // สร้าง Function เพื่อเก็บ event ของ Firebase
+                
+
+                this.eventFirebase = function() {
+
+                    setDO.on('value',function(data){
+                        const datas = Object.values(data.val());
+                        const show = datas[0]
+                        console.log(datas)
+                        console.log(show)
+                        document.getElementById('DO').innerHTML =" >>ค่าDOในน้ำปัจจุบัน: " + show + "mg/L";
+                        guage0.refresh(show);
+
+                        const EpochTime = datas[1]
+                        console.log(EpochTime)
+                        // document.getElementById('Epoch').innerHTML =">>EpochTimeปัจจุบัน : " + EpochTime + "sec";
+                        // guage1.refresh(EpochTime);
+                        var timestant = new Date(EpochTime * 1000)
+                        var year = timestant.getFullYear()+543 
+                        var month = timestant.getMonth()+1
+                        var day = timestant.getDate()
+                        // var hour =timestant.getHours()
+                        // var minute =timestant.getSeconds()
+                        // var sec =timestant.getDate()
+                        // document.getElementById('hour-second').innerHTML = "ชั่วโมง:นาที:วินาที ："+hour+"/"+minute+"/"+sec;
+                        document.getElementById('date-time').innerHTML = "วัน/เดือน/ปี ："+day+"/"+month+"/"+ year ;
+
+
+
+
+                        const Waterlevel = datas[2]
+                        console.log(Waterlevel)
+                        document.getElementById('Water').innerHTML =" >>ระดับน้ำปัจจุบัน: " + Waterlevel + "%";
+                        guage2.refresh(Waterlevel);
+
+                        const acid = datas[3]
+                        console.log(acid)
+                        document.getElementById('Acid').innerHTML =" >>ค่า PH ปัจจุบัน: " + acid + "PH";
+                        guage3.refresh(acid);
+
+
+                        
+                        const tempureter = datas[4]
+                        console.log(tempureter)
+                        document.getElementById('temp').innerHTML =">>ค่าอุณหภูมิน้ำปัจจุบัน: " + tempureter + "C";
+                        guage4.refresh(tempureter);
+
+
+                        setInterval(myTimer, 1000);
+
+                        function myTimer() {
+                        const d = new Date();
+                        document.getElementById("demo").innerHTML = "ชั่วโมง:นาที:วินาที : "+ d.toLocaleTimeString();
+                        }
+    
+                    })
+                }
+                this.push = function(title, content) {}
+            }).controller('firebaseCtrl', function(firebaseService) {
+                // เรียกใช้งาน firebaseService ที่เราสร้างไว้
+                firebaseService.initFirebase();
+                firebaseService.eventFirebase();
+            })
+        </script>
+
+
+        <style >
+            html { 
+                background: url(PIC1.gif) no-repeat center fixed; 
+                background-size: cover;
+            }           
+        </style>
+
+
+
+         <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                width: 246px;
+                background-color: #696969;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                padding: 7px 10px;
+                text-decoration: #696969;
+            }
+
+            li a.active {
+                background-color: red;
+                color: white;
+            }
+
+            li a:hover:not(.active) {
+                background-color: #BEBEBE;
+                color: black;
+            }
+        </style>
+
+        <style type="text/css">
+            h5 {
+            font-size: 22px;
+            font-family: JasmineUPC ;
+
+            }
+            
+            h1{
+                font-family: ROG Fonts;
+                font-size: 60px;
+                text-shadow: 3px 3px yellow; 
+            }
+
+            h4{
+                font-family: ROG Fonts;
+                font-size: 20px;
+                text-shadow: 3px 3px grey;
+            }
+
+            h2{
+                font-family: JasmineUPC;
+                font-size: 30px;
+            }
+
+            #grad1 {
+              height: 500px;
+              background-color: red; /* For browsers that do not support gradients */
+              background-image: linear-gradient(#00FFFF, white);
+            }
+
+            #grad2 {
+              height: 290px;
+              background-color: red; /* For browsers that do not support gradients */
+              background-image: linear-gradient( white,#00FFFF, #4169E1);
+            }
+
+            #grad3 {
+              height: 300px;
+              background-color: red; /* For browsers that do not support gradients */
+              background-image: linear-gradient( #4169E1,#00FFFF,white);
+            }
+
+            /*#grad4 {
+              height: 200px;
+              background-color: red; 
+              background-image: linear-gradient( white,#4169E1);
+            }*/
+
+
+        </style>
+
+        <style>
+            div.datemonthyear {
+              position: absolute;
+              top: 690px;
+              right:50;
+              width: 250px;
+              height: 100px;              
+            }
+            div.time {
+              position: absolute;
+              top: 650px;
+              right:50;
+              width: 250px;
+              height: 100px;             
+            }
+
+            div.img1 {
+              position: absolute;
+              top: 180px;
+              right:50;
+              width: 492px;
+              height: 100px;             
+            }
+
+        </style>
+
+<!-- แสดงผลข้อมูลที่ได้รับมาจาก database -->
+	<body ng-app="firebaseApp">
+<!-- side bar -->
+		<div class="sidebar">
+                <div class="picture">
+                    <img src="pic1.png" alt="Snow" style="width:95%">
+                </div>
+            <br>
+            <ul>
+                <li><a href="#data">ที่มาและความสำคัญ</a></li>
+                <li><a href="#contact">เกี่ยวกับ</a></li>
+                <li><a class="active" href="#home">ออกจากระบบ</a></li>
+            </ul>
+            <div id="grad1"></div>
+                <div class="img1"><img src="PIC3.gif" alt="Snow" style="width:50%"></div>
+                <div class="time"><h5 id="demo"></h5></div>
+                <div class="datemonthyear"><h5 id="date-time"></h5></div>
+        </div>
+                 
+
+               
+                <!-- <div class="Program"> -->
+                    <!-- <div id="grad4"> -->
+                        <h1 align="center"> <<...DATA & GAUGE...>> </h1>
+                    <!-- </div> -->
+
+                <!-- </div> --> 
+        <!-- แสดงผลข้อมูลจากfilebase -->
+                <div ng-controller="firebaseCtrl" >
+                    <div class="G0">
+                        <div id="grad3">
+                            <div class="D0">
+                                    <div class="N0">
+                                        <b><i><h2 align="center">วัดค่าDO</b></i></h2>
+                                    </div>
+                                
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                <p><h5 align="center"><b> >>ค่า DO ของน้ำปกติ : 5-8 mg/L </h5></p></b>
+                                <p><h5 id="DO" align="center"><b>DissolvedOxygen</h5></p>                      
+                            </div>
+                                <h4 align="center">DissolvedOxygen</h4>
+                                <div id = "guage0" style="width:320px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="G1">
+                        <div id="grad3">
+                            <div class="D1">
+                                <div class="N1">
+                                    <b><i><h2 align="center">วัดค่าWaterLevel</b></i></h2>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <p><h5 align="center"><b> >>ระดับน้ำปกติในตู้ปลา: ไม่น้อยกว่า60%</h5></p></b>
+                                <p><h5 id="Water" align="center"><b>WaterLevel</h5></p></b>
+                            </div>
+                                <h4 align="center">WaterLevel</h4>
+                                <br>
+                                <div id = "guage2" style="width:320px;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="G2">
+                        <div id="grad2">
+                            <div class="D2">
+                                <div class="N2">
+                                    <b><i><h2 align="center">วัดค่าPH</b></i></h2>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <p><h5 align="center"><b> >>ค่า PH ปกติ : 7-8 PH </h5></p></b>
+                                <p><h5 id="Acid" align="center"><b>Acid</h5></p></b>
+                            </div>
+                                <h4 align="center">PH</h4>
+                                <br>
+                                <div id = "guage3" style="width:320px;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="G3">
+                        <div id="grad2">
+                            <div class="D3">
+                                <div class="N3">
+                                    <b><i><h2 align="center">วัดค่าTempureter</b></i></h2>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <p><h5 align="center"><b> >>ค่าอุณหภูมิปกติของน้ำ : 20-25 C </b></h5></p>
+                                <p><h5 id="temp" align="center"><b>Tempureter</b></h5></p>  
+                            </div>
+                                <h4 align="center">Tempureter</h4>
+                                <br>
+                                <div id = "guage4" style="width:320px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="G1">
+                            <div class="D1">
+                                <div class="N1">
+                                    <b><i><h4 align="center">ค่าEpochTime</b></i></h4>
+                                </div>
+                                <p><h5 id="Epoch" align="center">EpochTime</h5></p>
+                            </div>
+                        <h4 align="center">EpoccTime</h4>
+                        <br>
+                        <div id = "guage1" style="width:150px;"></div>
+                    </div> -->
+
+                    
+                </div>
+                	
+                <script src="raphael-2.1.4.min.js"></script>
+                <script src="justgage.js"></script>     
+                <script>
+                var guage0; 
+                    guage0 = new JustGage({
+                                id: "guage0",
+                            	title: "D i s s o l v e d O x y g e n",
+                            	value: 1,
+                            	min: 1,
+                            	max: 10,
+                            	gaugeWidthScale: 0.7,
+                            	counter: true,
+                            	titleFontColor: "red",
+                            	titleFontFamily: "Georgia",
+                                titlePosition: "below",
+                                valueFontColor: "black",
+                                valueFontFamily: "ROG Fonts",
+                                titleFontFamily: "ROG Fonts",
+                            });
+                // var guage1; 
+                //     guage1 = new JustGage({
+                //         	   id: "guage1",
+                //             	title: "EpochTime",
+                //                 value: 1,
+                //                 min: 0,
+                //                 max: 10000000000,
+                //                 gaugeWidthScale: 0.7,
+                //                 counter: true,
+                //                 titleFontColor: "#000",
+                //                 titleFontFamily: "Georgia",
+                //                 titlePosition: "below",
+                //                 valueFontColor: "#505050",
+                //                 valueFontFamily: "Georgia",
+                //                 titleFontFamily: "Vollkorn",
+                //             });
+
+                var guage2; 
+                    guage2 = new JustGage({
+                                id: "guage2",
+                                title: "W a t e r l e v e l",
+                                value: 1,
+                                min: 0,
+                                max: 100,
+                                gaugeWidthScale: 0.7,
+                                counter: true,
+                                titleFontColor: "red",
+                                titleFontFamily: "Georgia",
+                                titlePosition: "below",
+                                valueFontColor: "black",
+                                valueFontFamily: "ROG Fonts",
+                                titleFontFamily: "ROG Fonts",
+                            });
+                var guage3; 
+                    guage3 = new JustGage({
+                                id: "guage3",
+                                title: "A c i d",
+                                value: 1,
+                                min: 0,
+                                max: 14,
+                                gaugeWidthScale: 0.7,
+                                counter: true,
+                                titleFontColor: "red",
+                                titleFontFamily: "Georgia",
+                                titlePosition: "below",
+                                valueFontColor: "black",
+                                valueFontFamily: "ROG Fonts",
+                                titleFontFamily: "ROG Fonts",
+                            });
+
+                var guage4; 
+                    guage4 = new JustGage({
+                                id: "guage4",
+                                title: "T e m p u r e t e r",
+                                value: 1,
+                                min: 0,
+                                max: 100,
+                                gaugeWidthScale: 0.7,
+                                counter: true,
+                                titleFontColor: "red",
+                                titleFontFamily: "Georgia",
+                                titlePosition: "below",
+                                valueFontColor: "black",
+                                valueFontFamily: "ROG Fonts",
+                                titleFontFamily: "ROG Fonts",
+                            });
+
+                </script>
+
+        		</div>
+        	      
+        	</body>
+        </html>
+	
