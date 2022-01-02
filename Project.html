@@ -43,15 +43,6 @@
                         document.getElementById('DO').innerHTML =" >>ค่าDOในน้ำปัจจุบัน: " + show + "mg/L";
                         guage0.refresh(show);
 
-                        const EpochTime = datas[1]
-                        console.log(EpochTime)
-                        var timestant = new Date(EpochTime * 1000)
-                        var year = timestant.getFullYear()+543 
-                        var month = timestant.getMonth()+1
-                        var day = timestant.getDate()
-                        document.getElementById('date-time').innerHTML = "วัน/เดือน/ปี ："+day+"/"+month+"/"+ year ;
-
-
 
 
                         const Waterlevel = datas[2]
@@ -70,6 +61,16 @@
                         console.log(tempureter)
                         document.getElementById('temp').innerHTML =">>ค่าอุณหภูมิน้ำปัจจุบัน: " + tempureter + "C";
                         guage4.refresh(tempureter);
+
+
+                        const EpochTime = datas[1]
+                        console.log(EpochTime)
+                        var timestant = new Date(EpochTime * 1000)
+                        var year = timestant.getFullYear()+543 
+                        var month = timestant.getMonth()+1
+                        var day = timestant.getDate()
+                        document.getElementById('date-time').innerHTML = "วัน/เดือน/ปี ："+day+"/"+month+"/"+ year ;
+
 
 
                         setInterval(myTimer, 1000);
