@@ -45,16 +45,10 @@
 
                         const EpochTime = datas[1]
                         console.log(EpochTime)
-                        // document.getElementById('Epoch').innerHTML =">>EpochTimeปัจจุบัน : " + EpochTime + "sec";
-                        // guage1.refresh(EpochTime);
                         var timestant = new Date(EpochTime * 1000)
                         var year = timestant.getFullYear()+543 
                         var month = timestant.getMonth()+1
                         var day = timestant.getDate()
-                        // var hour =timestant.getHours()
-                        // var minute =timestant.getSeconds()
-                        // var sec =timestant.getDate()
-                        // document.getElementById('hour-second').innerHTML = "ชั่วโมง:นาที:วินาที ："+hour+"/"+minute+"/"+sec;
                         document.getElementById('date-time').innerHTML = "วัน/เดือน/ปี ："+day+"/"+month+"/"+ year ;
 
 
@@ -173,11 +167,6 @@
               background-image: linear-gradient( #4169E1,#00FFFF,white);
             }
 
-            /*#grad4 {
-              height: 200px;
-              background-color: red; 
-              background-image: linear-gradient( white,#4169E1);
-            }*/
 
 
         </style>
@@ -228,12 +217,10 @@
                  
 
                
-                <!-- <div class="Program"> -->
-                    <!-- <div id="grad4"> -->
                         <h1 align="center"> <...DATA & GAUGE...> </h1>
-                    <!-- </div> -->
+                    
 
-                <!-- </div> --> 
+                 
         <!-- แสดงผลข้อมูลจากfilebase -->
                 <div ng-controller="firebaseCtrl" >
                     <div class="G0">
@@ -312,18 +299,6 @@
                         </div>
                     </div>
 
-                    <!-- <div class="G1">
-                            <div class="D1">
-                                <div class="N1">
-                                    <b><i><h4 align="center">ค่าEpochTime</b></i></h4>
-                                </div>
-                                <p><h5 id="Epoch" align="center">EpochTime</h5></p>
-                            </div>
-                        <h4 align="center">EpoccTime</h4>
-                        <br>
-                        <div id = "guage1" style="width:150px;"></div>
-                    </div> -->
-
                     
                 </div>
                 	
@@ -346,22 +321,6 @@
                                 valueFontFamily: "ROG Fonts",
                                 titleFontFamily: "ROG Fonts",
                             });
-                // var guage1; 
-                //     guage1 = new JustGage({
-                //         	   id: "guage1",
-                //             	title: "EpochTime",
-                //                 value: 1,
-                //                 min: 0,
-                //                 max: 10000000000,
-                //                 gaugeWidthScale: 0.7,
-                //                 counter: true,
-                //                 titleFontColor: "#000",
-                //                 titleFontFamily: "Georgia",
-                //                 titlePosition: "below",
-                //                 valueFontColor: "#505050",
-                //                 valueFontFamily: "Georgia",
-                //                 titleFontFamily: "Vollkorn",
-                //             });
 
                 var guage2; 
                     guage2 = new JustGage({
