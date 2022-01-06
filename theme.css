@@ -8,13 +8,6 @@
 	
 }
 
-/*.Program{
-	background-color: white;opacity: 0.7;
-	float:left;
-	width:1269px;
-	height:110px;
-	border: 1px solid black
-}*/
 
 .G0{
 	background-color: #f2f7f7;opacity: 0.9;
@@ -26,14 +19,6 @@
 
 }
 
-/*.G1{
-	background-color: #f2f7f7;
-	float:left;
-	width:415px;
-	height:310px;
-	border: 1px solid black
-	
-}*/
 
 .G1{
 	background-color: #f2f7f7;opacity: 0.9;
@@ -76,25 +61,17 @@
 	float:right;
 	width:300px;
 	height:310px;
-	/*border: 1px solid black*/
 	
 
 }
 
-/*.D1{
-	float:right;
-	width:250px;
-	height:310px;
-	
-	
 
-}*/
 
 .D1{
 	float:right;opacity: 0.9;
 	width:300px;
 	height:310px;
-	/*border: 1px solid black*/
+	
 	
 
 }
@@ -103,7 +80,6 @@
 	float:right;opacity: 0.9;
 	width:290px;
 	height:305px;
-	/*border: 1px solid black*/
 	
 
 }
@@ -112,7 +88,7 @@
 	float:right;opacity: 0.9;
 	width:300px;
 	height:305px;
-	/*border: 1px solid black*/
+	
 	
 
 }
@@ -128,15 +104,6 @@
 
 }
 
-/*.N1{
-	float:right;
-	width:248px;
-	height:50px;
-	border: 1px solid black
-	
-	
-
-}*/
 
 .N1{
 	float:right;opacity: 0.9;
